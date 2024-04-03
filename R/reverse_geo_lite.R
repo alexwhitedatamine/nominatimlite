@@ -192,7 +192,7 @@ reverse_geo_lite_single <- function(lat_cap,
 
   # Download to temp file
   json <- tempfile(fileext = ".json")
-  res <- api_call(url, json, isFALSE(verbose))
+  res <- api_call(url, json, isFALSE(verbose), nominatim_server = nominatim_server)
 
   # Step 2: Read and parse results ----
   tbl_query <- dplyr::tibble(lat = lat_cap, lon = long_cap)

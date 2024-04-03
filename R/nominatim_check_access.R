@@ -77,7 +77,7 @@ skip_if_api_server <- function() {
 #'
 #' @keywords internal
 #'
-api_call <- function(url, destfile, quiet) {
+api_call <- function(url, destfile, quiet, nominatim_server = "https://nominatim.openstreetmap.org/") {
   # nocov start
   dwn_res <-
     tryCatch(
@@ -89,9 +89,12 @@ api_call <- function(url, destfile, quiet) {
         return(FALSE)
       }
     )
+
   # nocov end
-  # Always sleep to make 1 call per sec
-  Sys.sleep(1)
+  if (nominatim_server == "https://nominatim.openstreetmap.org/"){
+    # Always sleep to make 1 call per sec
+    Sys.sleep(1)
+  }
 
   # nocov start
   if (isFALSE(dwn_res)) {

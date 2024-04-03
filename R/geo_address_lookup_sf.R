@@ -87,7 +87,7 @@ geo_address_lookup_sf <- function(osm_ids,
 
   # Download to temp file
   json <- tempfile(fileext = ".geojson")
-  res <- api_call(url, json, quiet = isFALSE(verbose))
+  res <- api_call(url, json, quiet = isFALSE(verbose), nominatim_server = nominatim_server)
 
   # Step 2: Read and parse results ----
 

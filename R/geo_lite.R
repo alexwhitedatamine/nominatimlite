@@ -139,7 +139,7 @@ geo_lite_single <- function(address,
 
   # Download to temp file
   json <- tempfile(fileext = ".json")
-  res <- api_call(url, json, isFALSE(verbose))
+  res <- api_call(url, json, isFALSE(verbose), nominatim_server = nominatim_server)
 
   # Step 2: Read and parse results ----
 
